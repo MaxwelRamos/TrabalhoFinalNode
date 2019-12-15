@@ -1,0 +1,30 @@
+<h2>TaskPlus - Controle de Tarefas</h2>
+<hr />
+<a href="/">Logout</a>
+<br>
+<br>
+<h1>Adicione tarefas na lista {{lista.descricao}} </h1>
+
+<form action="/tarefas/{{lista.id}}" method="POST">
+    <input type="text" name="descricao" id="descricao">
+    <button type="submit">Add Tarefa</button>
+</form>
+
+<ul>
+    {{#each tarefas}}
+    <li>
+        <p>
+            <b>{{this.descricao}}</b>
+            <p><a href="/tarefas/tarefa/{{this.id}}">>>Alterar</a></p>
+
+            <form action="/tarefas/delete/{{this.id}}" method="POST">
+                <button type="submit">Deletar</button>
+            </form>
+        </p>
+    </li>
+    {{/each}}
+</ul>
+
+<p>
+    <a href="/listas/{{lista.usuarioId}}">Voltar para listas</a>
+</p>
