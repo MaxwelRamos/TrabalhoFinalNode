@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/nodemon --inspect=0.0.0.0:9229 ./bin/www",
-    "knex": "./node_modules/.bin/knex"
+    "start": "node ./bin/www",
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
