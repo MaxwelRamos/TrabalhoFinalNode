@@ -1,28 +1,29 @@
 <h2>TaskPlus - Controle de Tarefas</h2>
 <hr />
-<a href="/">Logout</a>
+<a href="/" class="button">Logout</a>
 <br>
 <br>
 <div id="myDIV" class="header">
     <h2>Minha Lista - {{usuario.login}}</h2>
     <form action="/listas/{{usuario.id}}" method="POST">
-        <input type="text" name="descricao" id="descricao" placeholder="Adicione um item...">
-        <button type="submit" class="addBtn">Add</button>
+        <div class="botoes-items">
+            <input type="text" name="descricao" id="descricao" placeholder="Adicione um item...">
+            <button type="submit" class="addBtn">Add</button>
+        </div>
     </form>
 </div>
 
 <ul id="myUL">
     {{#each lista}}
     <li>
-        <p>
-            <b>{{this.descricao}}</b>
-            <a href="/listas/lista/{{this.id}}">Alterar</a>
-            <a href="/tarefas/{{this.id}}">Tarefas</a>
-
-            <form action="/listas/delete/{{this.id}}" method="POST">
-                <button class="addBtn1" type="submit">Deletar</button>
-            </form>
-        </p>
+        <b>{{this.descricao}}</b>
+        <form action="/listas/delete/{{this.id}}" method="POST">
+            <div class="botoes-items">
+                <a href="/listas/lista/{{this.id}}" class="button">Alterar</a>
+                <a href="/tarefas/{{this.id}}" class="button">Tarefas</a>
+                <button type="submit" class="button">Deletar</button>
+            </div>
+        </form>
     </li>
     {{/each}}
 </ul>

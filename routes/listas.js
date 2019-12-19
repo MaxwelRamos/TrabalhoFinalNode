@@ -29,7 +29,7 @@ router.post('/:usuarioId', function (req, res) {
       }
       else {
         Lista.create(data).then(response => {
-          res.render("listaMensagem", { lista: response, mensagem: `${response.descricao} - adicionada com sucesso!`});
+          res.render("listaMensagem", { lista: response, mensagem: `${response.descricao} - adicionada com sucesso!` });
         });
       }
     })
@@ -53,9 +53,11 @@ router.post("/lista/:id", function (req, res) {
 router.post("/delete/:id", function (req, res) {
   Lista.find({ id: req.params.id })
     .then(function (lista) {
-      Lista.deleteMany({ id: req.params.id }).then(
-        res.render("listaMensagem", { lista: lista[0], mensagem: `Lista ${lista[0].descricao} - deletada com sucesso!` }));
-    })
+      Tarefa.deleteMany({ listaid: req.params.id }).then(function (response) {
+        Lista.deleteMany({ id: req.params.id }).then(
+          res.render("listaMensagem", { lista: lista[0], mensagem: `Lista ${lista[0].descricao} - deletada com sucesso!` }));
+      })
+    });
 })
 
 

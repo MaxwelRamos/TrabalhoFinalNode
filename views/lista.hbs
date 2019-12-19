@@ -1,16 +1,17 @@
 <h2>TaskPlus - Controle de Tarefas</h2>
 <hr />
-<a href="/">Logout</a>
+<a href="/" class="button">Logout</a>
 <br>
 <br>
-<h1>Alteração do item - {{lista.descricao}}</h1>
 
-<form action="/listas/lista/{{lista.id}}" method="POST">
+<div id="myDIV" class="header">
+  <h2>Alteração do item - {{lista.descricao}}</h2>
+  <form action="/listas/lista/{{lista.id}}" method="POST">
     <input type="text" value="{{lista.descricao}}" name="descricao" id="descricao">
-    <button type="submit">Modify Item</button>
-</form>
+    <button type="submit" class="addBtn">Modify Item</button>
+  </form>
+</div>
 
 <p>
-  <a href="/listas/{{lista.usuarioId}}">Voltar para listas</a>
+  <a href="/listas/{{lista.usuarioId}}" class="button">Voltar para listas</a>
 </p>
-

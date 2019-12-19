@@ -1,24 +1,33 @@
-<div>
-  <h2>TaskPlus - Registrar Usuário</h2>
-  <hr />
+<div class="container">
+  <a class="links" id="paracadastro"></a>
+  <a class="links" id="paralogin"></a>
+  <div class="content">
+    <div id="cadastro">
+      <form action="/registrar" method="POST">
+        <h1>TaskPlus - Cadastro</h1>
+        <p>
+          <label for="email_login">Seu e-mail</label>
+          <input id="email_login" name="login" required="required" type="text" placeholder="contato@htmlecsspro.com" />
+        </p>
 
-  <form action="/registrar" method="POST">
-    <label>Usuário.................: </label>
-    <input type="text" name="login" id="login" />
-    <br />
+        <p>
+          <label for="senha_login">Sua senha</label>
+          <input id="senha_login" name="senha" required="required" type="password" placeholder="1234" />
+        </p>
 
-    <label>Senha...................: </label>
-    <input type="text" name="senha" id="senha" />
-    <br />
+        <p>
+          <label for="confirmar_senha">Confirmar Senha</label>
+          <input id="confirmar_senha" name="confirmarsenha" required="required" type="password" placeholder="1234" />
+        </p>
 
-    <label>Confirmar Senha..: </label>
-    <input type="text" name="confirmarsenha" id="confirmarsenha" />
-    <br />
-
-    <br />
-    <input type="submit" value="Registar" />
-  </form>
+        <p>
+          <input type="submit" value="Cadastrar" />
+        </p>
+        <p class="link">
+          Possui conta?
+          <a href="/"> Ir para Login </a>
+        </p>
+      </form>
+    </div>
+  </div>
 </div>
-<p>
-  <a href="/">Voltar</a>
-</p>
