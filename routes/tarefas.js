@@ -52,6 +52,21 @@ router.post("/delete/:id", function (req, res) {
   });
 })
 
+router.post("/concluir/:id", function (req, res) {
+  Tarefa.find({ id: req.params.id }).then(tarefa => {
+    if (tarefa[0].status == "pendente") {
+      Tarefa.update({ id: req.params.id },{ status: 'concluída' }).then(response => {
+        res.render("tarefaMensagem", { tarefa: tarefa[0], mensagem: `Tarefa ${tarefa[0].descricao} - concluída com sucesso!` });
+      });
+    }
+    else {
+      Tarefa.update({ id: req.params.id },{ status: 'pendente' }).then(response => {
+        res.render("tarefaMensagem", { tarefa: tarefa[0], mensagem: `Tarefa ${tarefa[0].descricao} - reabilitada com sucesso!` });
+      });
+    }
+  });
+})
+
 router.get("/tarefa/:id", function (req, res) {
   Tarefa.find({ id: req.params.id }).then(response => {
     res.render("tarefa", { tarefa: response[0] });

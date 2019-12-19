@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const listaSchema = new mongoose.Schema({
+const tarefaSchema = new mongoose.Schema({
     id: {
         type: Number
     },
@@ -12,8 +12,12 @@ const listaSchema = new mongoose.Schema({
     },
     descricao: {
         type: String
+    },
+    status: {
+        type: String,
+        default: 'pendente'
     }
 })
 
-const Lista = mongoose.model('Tarefa', listaSchema)
-module.exports = Lista
+const Tarefa = mongoose.model('Tarefa', tarefaSchema)
+module.exports = Tarefa
