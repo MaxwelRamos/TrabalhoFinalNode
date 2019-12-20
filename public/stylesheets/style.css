@@ -156,6 +156,7 @@ input[type="submit"]:hover{
   border: 1px solid rgba(147, 184, 189,0.8);
   
   -webkit-box-shadow: 5px;
+  box-shadow: 5px;
   border-radius: 5px;
   
   -webkit-animation-duration: 0.5s;
@@ -238,6 +239,32 @@ input[type="submit"]:hover{
 }
 .button {
   background-color: #1c87c9;
+  border: none;
+  color: white;
+  /*  padding: 20px 34px; */
+  padding: 5px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.buttonConcluir {
+  background-color: #44c91c;
+  border: none;
+  color: white;
+  /*  padding: 20px 34px; */
+  padding: 5px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.buttonReabilitar {
+  background-color: #c6c91c;
   border: none;
   color: white;
   /*  padding: 20px 34px; */
@@ -351,7 +378,7 @@ input {
   width: 25%; 
   background: #d9d9d9;
   color: #555;
-  float: left;  */
+  float: left; 
   text-align: center; 
   font-size: 16px;
   cursor: pointer;

@@ -1,31 +1,65 @@
-<h2>TaskPlus - Controle de Tarefas</h2>
-<hr />
-<a href="/" class="button">Logout</a>
-<br>
-<br>
-<div id="myDIV" class="header">
-    <h2>Adicione tarefas na lista {{lista.descricao}}</h2>
-    <form action="/tarefas/{{lista.id}}" method="POST">
-        <input type="text" name="descricao" id="descricao" placeholder="Adicione uma tarefa...">
-        <button type="submit" class="addBtn">Add Tarefa</button>
-    </form>
-</div>
+<head>
+    <script>
+        function descBtnConcluir() {
+            var btnConcluir = [];
 
-<ul>
-    {{#each tarefas}}
-    <li>
-        <b>{{this.descricao}}</b>
-        <form action="/tarefas/delete/{{this.id}}" method="POST">
-            <div class="botoes-items">
+            btnConcluir =document.getElementsByName("btnConcluir");
+            Array.from(btnConcluir).forEach(trocarDescricao);
+        }
 
-                <a href="/tarefas/tarefa/{{this.id}}" class="button">Alterar</a>
-                <button type="submit" class="button">Deletar</button>
-            </div>
+        function trocarDescricao(item, index, arr){
+            if (item.attributes[2].nodeValue == "pendente") {
+                item.innerHTML ="Concluir Tarefa";
+                item.classList.remove('buttonReabilitar');
+                item.classList.add('buttonConcluir');
+            }
+            else {
+                item.innerHTML ="Reabilitar Tarefa";
+                item.classList.remove('buttonConcluir');
+                item.classList.add('buttonReabilitar');
+            }
+        }
+    </script>
+</head>
+
+<body onload="descBtnConcluir()">
+    <h2>TaskPlus - Controle de Tarefas</h2>
+    <hr />
+    <a href="/" class="button">Logout</a>
+    <br>
+    <br>
+    <div id="myDIV" class="header">
+        <h2>Adicione tarefas na lista {{lista.descricao}}</h2>
+        <form action="/tarefas/{{lista.id}}" method="POST">
+            <input type="text" name="descricao" id="descricao" placeholder="Adicione uma tarefa...">
+            <button type="submit" class="addBtn">Add Tarefa</button>
         </form>
-    </li>
-    {{/each}}
-</ul>
+    </div>
 
-<p>
-    <a href="/listas/{{lista.usuarioId}}" class="button">Voltar para listas</a>
-</p>
+    <ul>
+        {{#each tarefas}}
+        <li>
+            <b>{{this.descricao}}</b>
+
+            <form action="/tarefas/delete/{{this.id}}" method="POST">
+                <div class="botoes-items">
+
+                    <a href="/tarefas/tarefa/{{this.id}}" class="button">Alterar</a>
+                    
+                    <button type="submit" class="button">Deletar</button>
+                </div>
+            </form>
+
+            <form action="/tarefas/concluir/{{this.id}}" method="POST">
+                <button name="btnConcluir" class="buttonConcluir" status={{this.status}} type="submit">Concluir</button>
+            </form>
+
+        </li>
+        {{/each}}
+    </ul>
+
+    <p>
+        <a href="/listas/{{lista.usuarioId}}" class="button">Voltar para listas</a>
+    </p>
+
+</body>
