@@ -2,8 +2,8 @@ Projeto final da disciplina Programação Web com Node.JS do curso de pós-gradu
 
 Desenvolvedores:
 
-Maxwel Ramos Pereira
-Bruno Gonçalves de Alcantara
-Emerson França da Silva
+- Maxwel Ramos Pereira
+- Bruno Gonçalves de Alcantara
+- Emerson França da Silva
 
 2º semestre/2019
